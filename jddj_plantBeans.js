@@ -69,8 +69,8 @@ let cityid = Math.round(Math.random() * (1500 - 1000) + 1000);
         //await getPoints();
         //await $.wait(1000);
 
-        //await runTask(tslist);
-        //await $.wait(1000);
+        await runTask(tslist);
+        await $.wait(1000);
 
         await watering();
         await $.wait(1000);
@@ -109,7 +109,7 @@ async function userinfo() {
 async function taskList() {
     return new Promise(async resolve => {
         try {
-            let option = urlTask('https://daojia.jd.com/client?_jdrandom=' + Math.round(new Date()) + '&functionId=task%2Flist&isNeedDealError=true&body=%7B%22modelId%22%3A%22M10003%22%2C%22plateCode%22%3A1%7D&channel=ios&platform=6.6.0&platCode=h5&appVersion=6.6.0&appName=paidaojia&deviceModel=appmodel&traceId=' + deviceid + '&deviceToken=' + deviceid + '&deviceId=' + deviceid, '');
+            let option = urlTask('https://daojia.jd.com/client?functionId=task/list&djencrypt=J%2BghbgCmJkKyjRUueOXEJIl2bayX1iwkYfo4RgXc4yGCzJu7Fhm9p3IRFTIEcqPwm6bh17pJca4y8OxSPWjKMy2kPMO59v7nazEMcsnxGBGEAbXeeHhOi42u58k1RqcJHIrqHS9Bq25eMhqXTTwiuqB%2FRq0x5O8GUK%2FlDQ4Dkpc2VoXosgHO1YnkWTUO861dnyLoHkMjGdRWg6KXilcMP4RunU7QT63wiKurab41TbUL%2Fzt2zpWm9D9cYpmvgClPU3XhOcPWHrvPhVyve11Za%2BoJQCi19kTxyFmaLTnEux9eTige%2BtFhOS0Ss59mSvn0WV7638foapb0HV%2BjOwUL4V4tq5gRAoqOqGrRgooRvkFuy97i4VdxQGLHf1Gw58JaEBxsX6zeyJCF2eSAUdO5qeTkGPKUXqWdiznY23eL4E3WDYEg3bwxy409Mv%2F25wcaGPecF0EzDGWiesc6Piq0MEtM4%2BPikK00liJe34cnhP%2F6vJhTFP11xqiPy5puGzgjkLL%2B17%2BrhmNVnGGPi7%2BMZ6p4snGcccLOHT%2FoRzk412WC5mdXXsBiogCFoNwKB%2Fwbg00k%2F8RxSLsZDzwzMsFV%2FqWQGV%2BTQPKwoMAcAWV6fq5DgqjW0tP2Duiu6NESEW19teiTQT1%2BwSMl8CSwxYHnU%2FdjmWNjhZlqKxA7hp5Q8d0LHulb4K5irta%2BHLkh5%2Bl14GiWmv3pPEtlG1%2F9wYAxa9BkoTwLu57aMFnNKogLm%2BbSzi%2BNWWrJtONcLCoihKD2);
 
             $.http.get(option).then(response => {
                 var data = JSON.parse(response.body);
