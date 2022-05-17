@@ -16,8 +16,7 @@ cron "10 0 * * *" script-path=https://raw.githubusercontent.com/passerby-b/JDDJ/
 const $ = new API("jddj_plantBeans");
 let ckPath = './jdCookie.js';//ck路径,环境变量:JDDJ_CKPATH
 let cookies = ['cart_uuid=ffe5b807-639c-419c-8bfd-af51a9ce0f32; o2o_m_h5_sid=cf92c8c8-4562-454a-ae2a-40ef80c5ae6e; deviceid_pdj_jd=ffe5b807-639c-419c-8bfd-af51a9ce0f32'];
-let thisbody = 'djencrypt=J%2BghbgCmJkKyjRUueOXEJIl2bayX1iwkYfo4RgXc4yGCzJu7Fhm9p3IRFTIEcqPwm6bh17pJca4y8OxSPWjKMy2kPMO59v7nazEMcsnxGBGEAbXeeHhOi42u58k1RqcJHIrqHS9Bq25eMhqXTTwiuqB%2FRq0x5O8GUK%2FlDQ4Dkpc2VoXosgHO1YnkWTUO861dnyLoHkMjGdRWg6KXilcMP4RunU7QT63wiKurab41TbUL%2Fzt2zpWm9D9cYpmvgClPU3XhOcPWHrvPhVyve11Za%2BoJQCi19kTxyFmaLTnEux9eTige%2BtFhOS0Ss59mSvn0WV7638foapb0HV%2BjOwUL4V4tq5gRAoqOqGrRgooRvkFuy97i4VdxQGLHf1Gw58JaEBxsX6zeyJCF2eSAUdO5qeTkGPKUXqWdiznY23eL4E3WDYEg3bwxy409Mv%2F25wcaGPecF0EzDGWiesc6Piq0MEtM4%2BPikK00liJe34cnhP9b8xWOn8XoUSoZn0akR0tSl2c3x0IyBjxUO14ys9I6A5T%2Fy68AbAkX1CRHpYBEMYujOcrEvB22nalHEwh2hDknDpq%2BTJCWsvrukrMURbzicPga42lh3Kudu4NOTWBgbdOaV7L%2Bg7xwU3H%2F96lLxp9OrehGOTNa3%2BJ5XdM0Dly3%2FpDqO5nKmxjj11UVcxJ0ePTGDRvdd%2F3kvbR50xKDO5HaxBrONSLtzqBUuVdaKaHziHrSnzfyZ4t2vE5mfzy%2BHgoHWiyu4tbCt4dJCVHVDXSMccQfI8n3cvEveIFRFOXWs%2BmVOEkKFEyjMiHGZiTPAVc%3D'
-let cookies = [];
+let thisbody = 'djencrypt=J%2BghbgCmJkKyjRUueOXEJIl2bayX1iwkYfo4RgXc4yGCzJu7Fhm9p3IRFTIEcqPwm6bh17pJca4y8OxSPWjKMy2kPMO59v7nazEMcsnxGBGEAbXeeHhOi42u58k1RqcJHIrqHS9Bq25eMhqXTTwiuqB%2FRq0x5O8GUK%2FlDQ4Dkpc2VoXosgHO1YnkWTUO861dnyLoHkMjGdRWg6KXilcMP4RunU7QT63wiKurab41TbUL%2Fzt2zpWm9D9cYpmvgClPU3XhOcPWHrvPhVyve11Za%2BoJQCi19kTxyFmaLTnEux9eTige%2BtFhOS0Ss59mSvn0WV7638foapb0HV%2BjOwUL4V4tq5gRAoqOqGrRgooRvkFuy97i4VdxQGLHf1Gw58JaEBxsX6zeyJCF2eSAUdO5qeTkGPKUXqWdiznY23eL4E3WDYEg3bwxy409Mv%2F25wcaGPecF0EzDGWiesc6Piq0MEtM4%2BPikK00liJe34cnhP9b8xWOn8XoUSoZn0akR0tSl2c3x0IyBjxUO14ys9I6A5T%2Fy68AbAkX1CRHpYBEMYujOcrEvB22nalHEwh2hDknDpq%2BTJCWsvrukrMURbzicPga42lh3Kudu4NOTWBgbdOaV7L%2Bg7xwU3H%2F96lLxp9OrehGOTNa3%2BJ5XdM0Dly3%2FpDqO5nKmxjj11UVcxJ0ePTGDRvdd%2F3kvbR50xKDO5HaxBrONSLtzqBUuVdaKaHziHrSnzfyZ4t2vE5mfzy%2BHgoHWiyu4tbCt4dJCVHVDXSMccQfI8n3cvEveIFRFOXWs%2BmVOEkKFEyjMiHGZiTPAVc%3D';
 let thiscookie = '', deviceid = '';
 let lat = '30.' + Math.round(Math.random() * (99999 - 10000) + 10000);
 let lng = '114.' + Math.round(Math.random() * (99999 - 10000) + 10000);
@@ -147,7 +146,7 @@ async function sign() {
 async function watering() {
     return new Promise(async resolve => {
         try {
-            let option = urlTask('https://daojia.jd.com/client?_jdrandom=' + Math.round(new Date()), 'functionId=plantBeans%2Fwatering&isNeedDealError=true&method=POST&body=%7B%22activityId%22%3A%2223e4a58bca00bef%22%2C%22waterAmount%22%3A100%7D&lat=' + lat + '&lng=' + lng + '&lat_pos=' + lat + '&lng_pos=' + lng + '&city_id=' + cityid + '&channel=ios&platform=6.6.0&platCode=h5&appVersion=6.6.0&appName=paidaojia&deviceModel=appmodel&traceId=' + deviceid + Math.round(new Date()) + '&deviceToken=' + deviceid + '&deviceId=' + deviceid + '');
+            let option = urlTask('https://daojia.jd.com/client?functionId=plantBeans/watering');
 
             let waterStatus = 1, waterCount = 0;
             do {
@@ -315,7 +314,7 @@ function urlTask(url, body) {
             'User-Agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 14_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148________appName=jdLocal&platform=iOS&commonParams={"sharePackageVersion":"2"}&djAppVersion=8.7.5&supportDJSHWK',
             'Accept-Language': 'zh-cn'
         },
-        body: body
+        body: thisbody
     };
     return option;
 }
