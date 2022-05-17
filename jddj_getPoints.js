@@ -69,7 +69,7 @@ async function getPoints() {
     return new Promise(async resolve => {
         try {
             let time = Math.round(new Date());
-            let option = urlTask('https://daojia.jd.com/client?functionId=plantBeans/getWater);
+            let option = urlTask('https://daojia.jd.com/client?functionId=plantBeans/getWater');
             $.http.post(option).then(async response => {
                 let data = JSON.parse(response.body);
                 if (data.code == 0) {
