@@ -89,7 +89,7 @@ let cityid = Math.round(Math.random() * (1500 - 1000) + 1000);
 async function userinfo() {
     return new Promise(async resolve => {
         try {
-            let option = urlTask('https://daojia.jd.com/client?functionId=mine/getUserAccountInfo&' + thishua)
+            let option = urlTask('https://daojia.jd.com/client?functionId=mine/getUserAccountInfo&' + thisgua)
 
             $.http.get(option).then(response => {
                 let data = JSON.parse(response.body);
