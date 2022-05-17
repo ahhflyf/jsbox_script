@@ -69,7 +69,7 @@ async function getPoints() {
     return new Promise(async resolve => {
         try {
             let time = Math.round(new Date());
-            let option = urlTask('https://daojia.jd.com/client?_jdrandom=' + time + '&_funid_=plantBeans/getWater', 'functionId=plantBeans%2FgetWater&isNeedDealError=true&method=POST&body=%7B%7D&lat=' + lat + '&lng=' + lng + '&lat_pos=' + lat + '&lng_pos=' + lng + '&city_id=' + cityid + '&channel=rn&platform=6.6.0&platCode=h5&appVersion=6.6.0&appName=paidaojia&deviceModel=appmodel&traceId=' + deviceid + time + '&deviceToken=' + deviceid + '&deviceId=' + deviceid + '&_jdrandom=' + time + '&_funid_=plantBeans%2FgetWater');
+            let option = urlTask('https://daojia.jd.com/client?functionId=plantBeans/getWater);
             $.http.post(option).then(async response => {
                 let data = JSON.parse(response.body);
                 if (data.code == 0) {
@@ -91,7 +91,7 @@ async function getPoints() {
 async function watering() {
     return new Promise(async resolve => {
         try {
-            let option = urlTask('https://daojia.jd.com/client?_jdrandom=' + Math.round(new Date()), 'functionId=plantBeans%2Fwatering&isNeedDealError=true&method=POST&body=%7B%22activityId%22%3A%2223e4a58bca00bef%22%2C%22waterAmount%22%3A100%7D&lat=&lng=&lat_pos=&lng_pos=&city_id=&channel=ios&platform=6.6.0&platCode=h5&appVersion=6.6.0&appName=paidaojia&deviceModel=appmodel&traceId=' + deviceid + Math.round(new Date()) + '&deviceToken=' + deviceid + '&deviceId=' + deviceid + '');
+            let option = urlTask('https://daojia.jd.com/client?functionId=plantBeans/watering');
 
             let waterStatus = 1, waterCount = 0;
             do {
