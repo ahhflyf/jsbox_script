@@ -63,14 +63,14 @@ let cityid = Math.round(Math.random() * (1500 - 1000) + 1000);
         await sign();
         await $.wait(1000);
 
-        await beansLottery();
-        await $.wait(1000);
+        //await beansLottery();
+        //await $.wait(1000);
 
-        await getPoints();
-        await $.wait(1000);
+        //await getPoints();
+        //await $.wait(1000);
 
-        await runTask(tslist);
-        await $.wait(1000);
+        //await runTask(tslist);
+        //await $.wait(1000);
 
         await watering();
         await $.wait(1000);
