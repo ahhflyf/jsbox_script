@@ -87,7 +87,7 @@ let cityid = Math.round(Math.random() * (1500 - 1000) + 1000);
 async function userinfo() {
     return new Promise(async resolve => {
         try {
-            let option = urlTask('https://daojia.jd.com/client?functionId=mine/getUserAccountInfo&djencrypt=Fpf3DH4RtGxjmylKZVIpHW4CkNAd6ZE4Kseac%2FJmT2QTWgtm8H3fbRYNUNaPqhqVkJpYWQjul%2FgrmW1cDlktx1XFEZTgO4yNgdG7aAcsM3g3kO6Dt2UFk57zH4Ub8e87U6TXPwd87YV6Lkyg4oX%2BCTZsnaA5d%2BcJvm%2BHLS6sQs0JCsAMq2f91R%2FtwBf5p47RV7VfFNQ%2B0IuFyln0y3ATwzYknbjd8kNsktsrKj4T2PERBvKMIzMeAOrMZmh2PzTL5Wrzby3L4DhxM%2FNxbrYCa9JbjpiofJjy65EDG%2F5RHwYWn8T5YC6WjRezNOdj7%2BmbrJScuLGhNqz2KhWq86%2BvPVyNRwHsxBbI7qHCw%2F4P38ipgt963hgzJwg9w6l3f9ABZiVhnGIrg2voPjh5TORPnzkFLF%2BRzr3tdzliquk%2BVNODePZPe%2F2Yzvbc7ClRl1ZDdEou6F9WDZFNfW4FHcCd7vzcEjMz5w70NDeojxjCSl3HWTrvIt5%2FhRgWBZDEdXiG3%2BqgujpGOYUYA7f%2FTcW9ghOoxa%2B0iBtZzGRniWgB1%2Fel1iWUx6jDDDi2vRKPkUj%2FAtE8xa9SuQXnHcVdPLbFcKhxIK9efNYy2jfyuCkXNLqMF4N%2B%2F%2BZy7Rx6B9MiyvpRVk9BvfAszT6zoU7hH857vLPT59AuLncNEtyRMfNEFcAGe4eWyQBZAdA1FgcZcbAkBSSerEucBuBO96lTJJE97MCl6oRgoXpnlVv1ePf9iPwPu2V3BHoH2SrlmPOH4aHVukpKWISbL66KXyR5CZU7HK%2FOLdoO7lFtb2G4bd2AUKkTke8GtjCcFfOSXwg8xMNa9XRY6YZVVrHL6ubjQXaphQ%3D%3D')
+            let option = urlTask('https://daojia.jd.com/client?functionId=mine/getUserAccountInfo&' + thisbody)
 
             $.http.get(option).then(response => {
                 let data = JSON.parse(response.body);
@@ -109,7 +109,7 @@ async function userinfo() {
 async function taskList() {
     return new Promise(async resolve => {
         try {
-            let option = urlTask('https://daojia.jd.com/client?functionId=task/list&djencrypt=J%2BghbgCmJkKyjRUueOXEJIl2bayX1iwkYfo4RgXc4yGCzJu7Fhm9p3IRFTIEcqPwm6bh17pJca4y8OxSPWjKMy2kPMO59v7nazEMcsnxGBGEAbXeeHhOi42u58k1RqcJHIrqHS9Bq25eMhqXTTwiuqB%2FRq0x5O8GUK%2FlDQ4Dkpc2VoXosgHO1YnkWTUO861dnyLoHkMjGdRWg6KXilcMP4RunU7QT63wiKurab41TbUL%2Fzt2zpWm9D9cYpmvgClPU3XhOcPWHrvPhVyve11Za%2BoJQCi19kTxyFmaLTnEux9eTige%2BtFhOS0Ss59mSvn0WV7638foapb0HV%2BjOwUL4V4tq5gRAoqOqGrRgooRvkFuy97i4VdxQGLHf1Gw58JaEBxsX6zeyJCF2eSAUdO5qeTkGPKUXqWdiznY23eL4E3WDYEg3bwxy409Mv%2F25wcaGPecF0EzDGWiesc6Piq0MEtM4%2BPikK00liJe34cnhP%2F6vJhTFP11xqiPy5puGzgjkLL%2B17%2BrhmNVnGGPi7%2BMZ6p4snGcccLOHT%2FoRzk412WC5mdXXsBiogCFoNwKB%2Fwbg00k%2F8RxSLsZDzwzMsFV%2FqWQGV%2BTQPKwoMAcAWV6fq5DgqjW0tP2Duiu6NESEW19teiTQT1%2BwSMl8CSwxYHnU%2FdjmWNjhZlqKxA7hp5Q8d0LHulb4K5irta%2BHLkh5%2Bl14GiWmv3pPEtlG1%2F9wYAxa9BkoTwLu57aMFnNKogLm%2BbSzi%2BNWWrJtONcLCoihKD2');
+            let option = urlTask('https://daojia.jd.com/client?functionId=task/list&' + thisbody);
 
             $.http.get(option).then(response => {
                 var data = JSON.parse(response.body);
