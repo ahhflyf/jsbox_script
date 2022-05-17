@@ -120,7 +120,7 @@ async function watering() {
 async function userinfo() {
     return new Promise(async resolve => {
         try {
-            let option = urlTask('https://daojia.jd.com/client?functionId=mine/getUserAccountInfo&djencrypt=Fpf3DH4RtGxjmylKZVIpHW4CkNAd6ZE4Kseac%2FJmT2QTWgtm8H3fbRYNUNaPqhqVkJpYWQjul%2FgrmW1cDlktx1XFEZTgO4yNgdG7aAcsM3g3kO6Dt2UFk57zH4Ub8e87U6TXPwd87YV6Lkyg4oX%2BCTZsnaA5d%2BcJvm%2BHLS6sQs0JCsAMq2f91R%2FtwBf5p47RV7VfFNQ%2B0IuFyln0y3ATwzYknbjd8kNsktsrKj4T2PERBvKMIzMeAOrMZmh2PzTL5Wrzby3L4DhxM%2FNxbrYCa9JbjpiofJjy65EDG%2F5RHwYWn8T5YC6WjRezNOdj7%2BmbrJScuLGhNqz2KhWq86%2BvPVyNRwHsxBbI7qHCw%2F4P38ipgt963hgzJwg9w6l3f9ABZiVhnGIrg2voPjh5TORPnzkFLF%2BRzr3tdzliquk%2BVNODePZPe%2F2Yzvbc7ClRl1ZDdEou6F9WDZFNfW4FHcCd7vzcEjMz5w70NDeojxjCSl3HWTrvIt5%2FhRgWBZDEdXiG3%2BqgujpGOYUYA7f%2FTcW9ghOoxa%2B0iBtZzGRniWgB1%2Fel1iWUx6jDDDi2vRKPkUj%2FAtE8xa9SuQXnHcVdPLbFcKhxIK9efNYy2jfyuCkXNLqMF4N%2B%2F%2BZy7Rx6B9MiyvpRVk9BvfAszT6zoU7hH857vLPT59AuLncNEtyRMfNEFcAGe4eWyQBZAdA1FgcZcbAkBSSerEucBuBO96lTJJE97MCl6oRgoXpnlVv1ePf9iPwPu2V3BHoH2SrlmPOH4aHVukpKWISbL66KXyR5CZU7HK%2FOLdoO7lFtb2G4bd2AUKkTke8GtjCcFfOSXwg8xMNa9XRY6YZVVrHL6ubjQXaphQ%3D%3D');
+            let option = urlTask('https://daojia.jd.com/client?functionId=mine/getUserAccountInfo&' + thisbody);
             $.http.get(option).then(response => {
                 //console.log(response.body);
                 let data = JSON.parse(response.body);
