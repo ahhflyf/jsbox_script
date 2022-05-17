@@ -174,12 +174,60 @@ function urlTask(url, body) {
             'User-Agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 15_4_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.18(0x1800123f) NetType/WIFI Language/zh_CN',
             'Accept-Language': 'zh-cn'
         },
-        body: 'djencrypt'='J%2BghbgCmJkKyjRUueOXEJIl2bayX1iwkYfo4RgXc4yGCzJu7Fhm9p3IRFTIEcqPwm6bh17pJca4y8OxSPWjKMy2kPMO59v7nazEMcsnxGBGEAbXeeHhOi42u58k1RqcJHIrqHS9Bq25eMhqXTTwiuqB%2FRq0x5O8GUK%2FlDQ4Dkpc2VoXosgHO1YnkWTUO861dnyLoHkMjGdRWg6KXilcMP4RunU7QT63wiKurab41TbUL%2Fzt2zpWm9D9cYpmvgClPU3XhOcPWHrvPhVyve11Za%2BoJQCi19kTxyFmaLTnEux9eTige%2BtFhOS0Ss59mSvn0WV7638foapb0HV%2BjOwUL4V4tq5gRAoqOqGrRgooRvkFuy97i4VdxQGLHf1Gw58JaEBxsX6zeyJCF2eSAUdO5qeTkGPKUXqWdiznY23eL4E3WDYEg3bwxy409Mv%2F25wcaGPecF0EzDGWiesc6Piq0MEtM4%2BPikK00liJe34cnhP9b8xWOn8XoUSoZn0akR0tSl2c3x0IyBjxUO14ys9I6A5T%2Fy68AbAkX1CRHpYBEMYujOcrEvB22nalHEwh2hDknDpq%2BTJCWsvrukrMURbzicPga42lh3Kudu4NOTWBgbdOaV7L%2Bg7xwU3H%2F96lLxp9OrehGOTNa3%2BJ5XdM0Dly3%2FpDqO5nKmxjj11UVcxJ0ePTGDRvdd%2F3kvbR50xKDO5HaxBrONSLtzqBUuVdaKaHziHrSnzfyZ4t2vE5mfzy%2BHgoHWiyu4tbCt4dJCVHVDXSMccQfI8n3cvEveIFRFOXWs%2BmVOEkKFEyjMiHGZiTPAVc%3D'
+        body: 'djencryptJ%2BghbgCmJkKyjRUueOXEJIl2bayX1iwkYfo4RgXc4yGCzJu7Fhm9p3IRFTIEcqPwm6bh17pJca4y8OxSPWjKMy2kPMO59v7nazEMcsnxGBGEAbXeeHhOi42u58k1RqcJHIrqHS9Bq25eMhqXTTwiuqB%2FRq0x5O8GUK%2FlDQ4Dkpc2VoXosgHO1YnkWTUO861dnyLoHkMjGdRWg6KXilcMP4RunU7QT63wiKurab41TbUL%2Fzt2zpWm9D9cYpmvgClPU3XhOcPWHrvPhVyve11Za%2BoJQCi19kTxyFmaLTnEux9eTige%2BtFhOS0Ss59mSvn0WV7638foapb0HV%2BjOwUL4V4tq5gRAoqOqGrRgooRvkFuy97i4VdxQGLHf1Gw58JaEBxsX6zeyJCF2eSAUdO5qeTkGPKUXqWdiznY23eL4E3WDYEg3bwxy409Mv%2F25wcaGPecF0EzDGWiesc6Piq0MEtM4%2BPikK00liJe34cnhP9b8xWOn8XoUSoZn0akR0tSl2c3x0IyBjxUO14ys9I6A5T%2Fy68AbAkX1CRHpYBEMYujOcrEvB22nalHEwh2hDknDpq%2BTJCWsvrukrMURbzicPga42lh3Kudu4NOTWBgbdOaV7L%2Bg7xwU3H%2F96lLxp9OrehGOTNa3%2BJ5XdM0Dly3%2FpDqO5nKmxjj11UVcxJ0ePTGDRvdd%2F3kvbR50xKDO5HaxBrONSLtzqBUuVdaKaHziHrSnzfyZ4t2vE5mfzy%2BHgoHWiyu4tbCt4dJCVHVDXSMccQfI8n3cvEveIFRFOXWs%2BmVOEkKFEyjMiHGZiTPAVc%3D'
     };
     return option;
 }
 
+//根据京东ck获取到家ck
+async function taskLoginUrl(thiscookie) {
+    return new Promise(async resolve => {
+        try {
+            if (thiscookie.indexOf('deviceid_pdj_jd') > -1) {
+                let arr = thiscookie.split(';');
+                for (const o of arr) {
+                    if (o.indexOf('deviceid_pdj_jd') > -1) {
+                        deviceid = o.split('=')[1];
+                    }
+                }
+                resolve(thiscookie);
+            }
+            else {
+                deviceid = _uuid();
+                let option = {
+                    url: encodeURI('https://daojia.jd.com/client?_jdrandom=' + (+new Date()) + '&_funid_=login/treasure&functionId=login/treasure&body={}&lat=&lng=&lat_pos=&lng_pos=&city_id=&channel=h5&platform=6.6.0&platCode=h5&appVersion=6.6.0&appName=paidaojia&deviceModel=appmodel&isNeedDealError=false&traceId=' + deviceid + '&deviceToken=' + deviceid + '&deviceId=' + deviceid + '&_jdrandom=' + (+new Date()) + '&_funid_=login/treasure'),
+                    headers: {
+                        "Cookie": 'deviceid_pdj_jd=' + deviceid + ';' + thiscookie + ';',
+                        "Host": "daojia.jd.com",
+                        'Content-Type': 'application/x-www-form-urlencoded;',
+                        "User-Agent": 'jdapp;iPhone;10.0.10;14.1;' + deviceid + ';network/wifi;model/iPhone11,6;appBuild/167764;jdSupportDarkMode/0;Mozilla/5.0 (iPhone; CPU iPhone OS 14_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148;supportJDSHWK/1'
+                    }
+                };
+                let ckstr = '';
+                await $.http.get(option).then(async response => {
+                    //console.log(response);
+                    let body = JSON.parse(response.body);
+                    if (body.code == 0) {
+                        for (const key in response.headers) {
+                            if (key.toLowerCase().indexOf('cookie') > -1) {
+                                ckstr = response.headers[key].toString();
+                            }
+                        }
+                        ckstr += ';deviceid_pdj_jd=' + deviceid;
+                    }
+                    else {
+                        console.log(body.msg);
+                    }
+                });
+                resolve(ckstr);
+            }
 
+        } catch (error) {
+            console.log(error);
+            resolve('');
+        }
+    })
+}
 
 function _uuid() {
     function s4() {
