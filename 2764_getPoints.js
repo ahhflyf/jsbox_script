@@ -203,7 +203,7 @@ async function taskLoginUrl(thiscookie) {
                         "Cookie": 'deviceid_pdj_jd=' + deviceid + ';' + thiscookie + ';',
                         "Host": "daojia.jd.com",
                         'Content-Type': 'application/x-www-form-urlencoded;',
-                        "User-Agent": 'jdapp;iPhone;10.0.10;14.1;' + deviceid + ';network/wifi;model/iPhone11,6;appBuild/167764;jdSupportDarkMode/0;Mozilla/5.0 (iPhone; CPU iPhone OS 14_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148;supportJDSHWK/1'
+                        "User-Agent": 'Mozilla/5.0 (iPhone; CPU iPhone OS 15_4_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.18(0x1800123f) NetType/WIFI Language/zh_CN'
                     }
                 };
                 let ckstr = '';
