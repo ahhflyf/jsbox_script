@@ -15,7 +15,7 @@
 
 const $ = new API("jddj_getPoints");
 let ckPath = './jdCookie.js';//ck路径,环境变量:JDDJ_CKPATH
-let cookies = [];
+let cookies = [cart_uuid=ffe5b807-639c-419c-8bfd-af51a9ce0f32; o2o_m_h5_sid=cf92c8c8-4562-454a-ae2a-40ef80c5ae6e; deviceid_pdj_jd=ffe5b807-639c-419c-8bfd-af51a9ce0f32];
 let thiscookie = '', deviceid = '', nickname = '';
 let lat = '30.' + Math.round(Math.random() * (99999 - 10000) + 10000);
 let lng = '114.' + Math.round(Math.random() * (99999 - 10000) + 10000);
