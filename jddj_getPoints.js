@@ -120,7 +120,7 @@ async function watering() {
 async function userinfo() {
     return new Promise(async resolve => {
         try {
-            let option = urlTask('https://daojia.jd.com/client?functionId=mine/getUserAccountInfo&' + thisbody);
+            let option = urlTask('https://daojia.jd.com/client?functionId=fruit/getWaterRedPackInfo&djencrypt=VZkhqKi5ydRgM%2BlhBevLJwBOgcgj5iaGuYO56W0DGoozmCduisr4ddPrONQXkeB%2FXz6zpsxgF0fWbFDvZoWF33VJwjmqRAVAINrsqPxtsy2MppFvO5XbXGY5Jei2pyY55dYXrc9k%2ByudCz9K%2BMQb4ybo4nawjHKx5DcAFVLgQzA%2B8TeonB%2FKVWpPoXAvlRx10xZJQAZut5ZS9QnThGhmum4iPNF15R%2B80OHwBsfRRRZcFd5ShRb8fyY9Tvxnv5g8NO5x0Js4mLTfD46PLqmq%2FQ33xNnJGZriRRV33iTfRoCvVSIie73KkccjNZkC2H2f0dyva9L6tuA3DshahzbtR0gOsQCTQzB7XZlYmt3X4u6O3a%2BXxmwfCGH9SBhUUT9vlV%2BtDZYNvaEQMIbV1rgnFdg4VXvgW4tuqhQLZn93%2F4IKHhgje0IBMxWTCWWFqVd0th1fp%2FSV49%2BT%2B8ZCoLAD74SL%2BRic1d3KO%2FzBEsWgnwGQLrSf0bezSTgFD6uWNRSt%2B%2FJueGqBfPhlBKnHb%2FOuHNdONK6iXCBHF45cBcBUA6T6%2FgzTHjssR2qjv7PhlzTfIP%2BawTTvtJm%2F3Dfo%2FiKoJ16VnucQxqZtbbRevAAdfPtvPFJfjXG346%2FkLbylMusLhpOXaSJ70WJLBF4p77LrBrSc2S5FJFWv4QQb5JvQCvMlnQ602TccdAVabyVbV6w%2F%2FJqygxU%2BYzauAYLhDWhLpo8bNiIoMg%2BO8IZDmtEP1X0%3D);
             $.http.get(option).then(response => {
                 //console.log(response.body);
                 let data = JSON.parse(response.body);
@@ -201,7 +201,7 @@ async function taskLoginUrl(thiscookie) {
                         "Cookie": 'deviceid_pdj_jd=' + deviceid + ';' + thiscookie + ';',
                         "Host": "daojia.jd.com",
                         'Content-Type': 'application/x-www-form-urlencoded;',
-                        "User-Agent": 'jdapp;iPhone;10.0.10;14.1;' + deviceid + ';network/wifi;model/iPhone11,6;appBuild/167764;jdSupportDarkMode/0;Mozilla/5.0 (iPhone; CPU iPhone OS 14_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148;supportJDSHWK/1'
+                        "User-Agent": 'Mozilla/5.0 (iPhone; CPU iPhone OS 15_4_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.18(0x1800123f) NetType/WIFI Language/zh_CN'
                     }
                 };
                 let ckstr = '';
